@@ -1,15 +1,16 @@
 import React from 'react';
-
-import {View, Text, Button } from 'react-native';
+import {useSelector, connect} from 'react-redux';
+import {View, Text, Button, Card} from 'react-native';
 import {colors} from '../../constants/themes';
 import {styles} from './styles';
 
 const Products = ({navigation, route}) => {
-  const {product} = route.params;
+  const product = useSelector(state => state.products.selectedProduct);
   const {name, description, price, weight} = product;
   return (
       <View style={styles.container}>
         <View style={styles.containerButton}>
+        <View style={styles.containerView}>
           <Text style={styles.text}>{name}</Text>
           <Text style={styles.text}>{description}</Text>
           <Text style={styles.text}>price: ${price}</Text>
@@ -21,8 +22,8 @@ const Products = ({navigation, route}) => {
           />
         </View>
       </View>
-    
+    </View>
   );
 };
 
-export default Products;
+export default connect()(Products);

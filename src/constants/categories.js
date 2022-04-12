@@ -1,27 +1,27 @@
 export const CATEGORIES = [
     {
         id: 1,
-        name: 'Harinas Puras',
-        color: '#e4d8d5',
-        description: 'Panes de harinas puras'
+        name: 'Golosinas',
+        color: '#ff00ff',
+        description: 'Golosinas super dulces'
     },
     {
         id: 2,
-        name: 'Harinas Integrales',
-        color: '#c9b2ad',
-        description: 'Panes de harinas integrales'
+        name: 'Gomitas',
+        color: '#ea899a',
+        description: 'Gomitas con azucar y sin azucar'
     },
     {
         id: 3,
-        name: 'Harinas de Trigo',
-        color: '#ae8e86',
-        description: 'Panes de harinas de trigo'
+        name: 'Chicles',
+        color: '#f4a1e5',
+        description: 'Chicles masticables de frutas'
     },
     {
         id: 4,
-        name: 'Harinas de Maíz',
-        color: '#936b61',
-        description: 'Panes de harinas de maíz'
+        name: 'Paletas',
+        color: '#de4c8a',
+        description: 'Paletas de caramelo frutales'
     },
     {
         containerButton: {

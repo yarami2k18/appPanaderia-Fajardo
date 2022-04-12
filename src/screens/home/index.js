@@ -1,19 +1,24 @@
 import React from 'react'
 import { FlatList, View } from 'react-native'
 import { styles } from './styles'
-import { CATEGORIES } from '../../constants/categories'
+import { useSelector, useDispatch,connect } from 'react-redux'
 import CategoryGrid from '../../components/molecules/category-grid/index'
+import { selectedCategory } from '../../store/actions/category.action'
+import { computeWindowedRenderLimits } from 'react-native/Libraries/Lists/VirtualizeUtils'
 
 const Home = ({ navigation  }) => {
+    const dispatch = useDispatch();
+    const categories = useSelector(state => state.categories.categories)
     const handleSelectCategory = (category) => {
-        navigation.navigate('Category', { id: category.id, name: category.name })
+        dispatch(selectedCategory(category.id))
+        navigation.navigate('Category', { name: category.name })
     }
     const renderItem = ({ item }) => <CategoryGrid item={item} onSelected={handleSelectCategory} />
 
     return (
         <View style={styles.container}>
             <FlatList 
-                data={CATEGORIES}
+                data={categories}
                 keyExtractor={item => item.id}
                 renderItem={renderItem}
             />
@@ -21,4 +26,4 @@ const Home = ({ navigation  }) => {
     )
 }
 
-export default Home
+export default connect()(Home)
